@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="srcPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E:\srcPath</Value>
+      <Value Profile="(Default)">d:\srcPath</Value>
     </Setting>
     <Setting Name="destPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E:\destPath</Value>
+      <Value Profile="(Default)">d:\destPath</Value>
     </Setting>
     <Setting Name="SDarguments" Type="System.String" Scope="User">
       <Value Profile="(Default)">-c:v libx264 -strict -2 -s 1920*1080 -b 8000k -ab 128k  -r 25  -vf pad="ih*16/9/sar:ih:(ow-iw)/2:(oh-ih)/2" </Value>
     </Setting>
     <Setting Name="errorPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E:\errorPath</Value>
+      <Value Profile="(Default)">d:\errorPath</Value>
     </Setting>
     <Setting Name="XDCAMarguments1" Type="System.String" Scope="User">
       <Value Profile="(Default)">-vcodec mpeg2video -s 1920x1080 -b:v 50000k -maxrate 50000k -bufsize 3835k -minrate 50000k -r 25 -flags ilme -top 1 -acodec pcm_s24le -ar 48000 -pix_fmt yuv422p -profile:v 0 -level:v 2  -map 0:v  -map 0:a</Value>

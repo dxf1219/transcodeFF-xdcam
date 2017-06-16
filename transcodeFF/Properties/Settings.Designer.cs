@@ -25,7 +25,7 @@ namespace transcodeFF.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("E:\\srcPath")]
+        [global::System.Configuration.DefaultSettingValueAttribute("d:\\srcPath")]
         public string srcPath {
             get {
                 return ((string)(this["srcPath"]));
@@ -37,7 +37,7 @@ namespace transcodeFF.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("E:\\destPath")]
+        [global::System.Configuration.DefaultSettingValueAttribute("d:\\destPath")]
         public string destPath {
             get {
                 return ((string)(this["destPath"]));
@@ -62,7 +62,7 @@ namespace transcodeFF.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("E:\\errorPath")]
+        [global::System.Configuration.DefaultSettingValueAttribute("d:\\errorPath")]
         public string errorPath {
             get {
                 return ((string)(this["errorPath"]));

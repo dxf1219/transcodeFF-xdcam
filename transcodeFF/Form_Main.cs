@@ -60,7 +60,7 @@ namespace transcodeFF
         private bool ifsuccessed = false ;
         private int cliptype = 0; // 0 普通 1 广播级
         private string outputfile;
-        private int taskdur = 0;
+        private double taskdur = 0;
         private DateTime taskstarttime;
         //消息框代理
         private delegate void SetTextBoxCallback(string text);
@@ -468,6 +468,13 @@ namespace transcodeFF
                                                 WriteLogNew.writeLog("获取视频文件为标清!" + xmlNodeDisplayAspectRatio.InnerText, logpath, "info");
                                                 SetText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " " + "获取视频文件为标清!" + xmlNodeDisplayAspectRatio.InnerText + "\n");
                                             }
+                                            else
+                                            {
+                                                WriteLogNew.writeLog("获取视频文件为高清!" + xmlNodeDisplayAspectRatio.InnerText, logpath, "info");
+                                                SetText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " " + "获取视频文件为高清!" + xmlNodeDisplayAspectRatio.InnerText + "\n");
+
+
+                                            }
                                         }
 
                                         XmlNode OverallBitRateNode = null;
@@ -482,8 +489,17 @@ namespace transcodeFF
                                         xmlnodedur = docmediainfo.SelectSingleNode("//item[@Name='Duration']");
                                         if (xmlnodedur != null)
                                         {
-                                            taskdur = Convert.ToInt32(xmlnodedur.InnerText);
-                                            WriteLogNew.writeLog("获取视频文件时长!" + taskdur, logpath, "info");
+                                            try
+                                            {
+                                                taskdur = Convert.ToDouble(xmlnodedur.InnerText);
+                                                WriteLogNew.writeLog("获取视频文件时长!" + taskdur, logpath, "info");
+                                            }
+                                            catch (Exception ee)
+                                            {
+                                                taskdur = 0.0;
+                                                WriteLogNew.writeLog("获取视频文件时长异常!" + ee.ToString(), logpath, "error");
+                                            }
+                                          
                                         }
 
                                         XmlNode AudioCountNode = null;
@@ -509,9 +525,7 @@ namespace transcodeFF
 
                                     //调用ffmpeg 
                                     //对于普通的素材来转码h.264 8M 
-                                    //专业素材 转码xdcam 50M 
-                                 
-                
+                                    //专业素材 转码xdcam 50M                                  
                                     if (filetype == 1)
                                     {
                                         //判断你是否为专业素材
@@ -576,11 +590,11 @@ namespace transcodeFF
                                     taskstarttime = DateTime.Now;
 
                            
-
                                     of_Cmd(ffmpeg,args);
 
                                     if (ifsuccessed)
                                     {
+                                        Thread.Sleep(1000);
                                         delegate_ProgressBar(progressBar_value, 100);
                                         delegate_Label(label_process, "进度:"+ "100%");
                                         WriteLogNew.writeLog("转码完成:" + newfilename, logpath, "info");
