@@ -589,7 +589,6 @@ namespace transcodeFF
 
                                     taskstarttime = DateTime.Now;
 
-                           
                                     of_Cmd(ffmpeg,args);
 
                                     if (ifsuccessed)
@@ -636,7 +635,6 @@ namespace transcodeFF
                                         }
                                     }
                                  
-
                                 }
                                 catch (Exception ee)
                                 {
