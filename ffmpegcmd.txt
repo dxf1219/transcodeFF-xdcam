@@ -1,0 +1,1 @@
+ffmpeg -i 1.mxf -vcodec mpeg2video -s 1920x1080 -b:v 50000k -maxrate 50000k -bufsize 3835k -minrate 50000k -r 25 -flags ilme -top 1 -acodec pcm_s24le -ar 48000 -pix_fmt yuv422p -profile:v 0 -level:v 2 -map 0:v -map 0:a output2.mxf

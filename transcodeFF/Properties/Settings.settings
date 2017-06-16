@@ -1,0 +1,54 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="transcodeFF.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="srcPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\srcPath</Value>
+    </Setting>
+    <Setting Name="destPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\destPath</Value>
+    </Setting>
+    <Setting Name="SDarguments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-c:v libx264 -strict -2 -s 1920*1080 -b 8000k -ab 128k  -r 25  -vf pad="ih*16/9/sar:ih:(ow-iw)/2:(oh-ih)/2" </Value>
+    </Setting>
+    <Setting Name="errorPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\errorPath</Value>
+    </Setting>
+    <Setting Name="XDCAMarguments1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-vcodec mpeg2video -s 1920x1080 -b:v 50000k -maxrate 50000k -bufsize 3835k -minrate 50000k -r 25 -flags ilme -top 1 -acodec pcm_s24le -ar 48000 -pix_fmt yuv422p -profile:v 0 -level:v 2  -map 0:v  -map 0:a</Value>
+    </Setting>
+    <Setting Name="scanInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30000</Value>
+    </Setting>
+    <Setting Name="textclearLength" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="XDCAMextension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.mxf</Value>
+    </Setting>
+    <Setting Name="xdcamsuccessString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">muxing overhead:</Value>
+    </Setting>
+    <Setting Name="transcodeExe" Type="System.String" Scope="User">
+      <Value Profile="(Default)">transcode01</Value>
+    </Setting>
+    <Setting Name="h264successString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Weighted P-Frames:</Value>
+    </Setting>
+    <Setting Name="H264HDarguments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-c:v libx264 -strict -2 -s 1920*1080 -b 8000k  -ab 128k -r 25  </Value>
+    </Setting>
+    <Setting Name="H264extension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.mp4</Value>
+    </Setting>
+    <Setting Name="IFH264" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="bitRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">15592573</Value>
+    </Setting>
+    <Setting Name="XDCAMarguments2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-vcodec mpeg2video -s 1920x1080 -b:v 50000k -maxrate 50000k -bufsize 3835k -minrate 50000k -r 25 -flags ilme -top 1 -acodec pcm_s24le -ar 48000 -pix_fmt yuv422p -profile:v 0 -level:v 2 -map 0:v</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
