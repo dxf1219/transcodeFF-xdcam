@@ -414,19 +414,44 @@ namespace transcodeFF
                                         catch (Exception eet)
                                         {
                                             WriteLogNew.writeLog("文件移动到出错目录失败!" + errorPath + eet.ToString(), logpath, "error");
-
                                         }
                                         continue;
                                     }
 
+                                    int ifhasvideos = -1;
                                     try
                                     {
-
+                                        XmlNode xmlNodeVideo = docmediainfo.SelectSingleNode("//Video");
+                                        if (xmlNodeVideo != null)
+                                        {
+                                            if (xmlNodeVideo.HasChildNodes)
+                                            {
+                                                ifhasvideos = 1;
+                                            }
+                                        } //video 节点不为空
                                     }
-                                    catch (Exception ee)
+                                    catch (Exception eet)
                                     {
-
+                                        WriteLogNew.writeLog("media xml获取video 节点出错!" +  eet.ToString(), logpath, "error");
                                     }
+
+                                    if (ifhasvideos == -1)  //没有video信息
+                                    {
+                                        //出错处理
+                                        string errorPath = Properties.Settings.Default.errorPath + "\\" + getOriginFileName(Path.GetFileName(newfilename));
+                                        try
+                                        {
+                                            File.Move(newfilename, errorPath);
+                                            WriteLogNew.writeLog("文件移动到出错目录成功!" + errorPath, logpath, "info");
+                                            SetText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " " + "文件移动到出错目录成功!" + "\n");
+                                        }
+                                        catch (Exception eet)
+                                        {
+                                            WriteLogNew.writeLog("文件移动到出错目录失败!" + errorPath + eet.ToString(), logpath, "error");
+                                        }
+                                        continue;
+                                    }
+
                                     //判断为HD SD 文件
                                     int filetype = 1; // 0 SD 1 HD 
                                     int clipbiteRate = 0;
